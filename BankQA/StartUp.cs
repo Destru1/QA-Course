@@ -4,21 +4,25 @@ namespace BankQA
 {
     class StartUp
     {
+        private const string DEPOSIT_MESSAGE = "Enter deposit value: ";
         static void Main(string[] args)
         {
             decimal balance = 0;
+            Console.Write(DEPOSIT_MESSAGE);
             decimal deposit = decimal.Parse(Console.ReadLine());
 
-            if (deposit < 0)
+            while (deposit < 0)
             {
                 Console.WriteLine("You cannot add negative money");
+                Console.Write(DEPOSIT_MESSAGE);
+                deposit = decimal.Parse(Console.ReadLine());
                 
             }
-            else
-            {
+            
+            
                 balance += deposit;
                 Console.WriteLine($"You deposited {balance} $");
-            }
+            
             
 
 
